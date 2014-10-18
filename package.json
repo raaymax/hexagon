@@ -9,13 +9,14 @@
   "dependencies": {
     "app-root-path": "^0.1.0",
     "async": "^0.9.0",
-    "chai": "^1.9.1",
+    "chai": "*",
+    "mocha": "*",
     "debug": "^2.0.0",
-    "errorhandler": "^1.2.0",
+    "errorhandler": "^1.2.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
