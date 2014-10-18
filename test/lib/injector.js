@@ -109,15 +109,15 @@ describe("Injector", function(){
 		it('all together', function(done){
 			var injector = new Injector();
 			injector.loader._require = function(path){
-				console.log("require done");
+				//console.log("require done");
 				return function(){
-					console.log("func called");
+					//console.log("func called");
 					return "OKO";
 				}
 			}
 			injector.loader.setPath('default',['/home']);
 			injector.call(function(app){
-				console.log(app);
+				//console.log(app);
 				app.should.equal("OKO");
 				done();
 			},function(err){
@@ -131,9 +131,9 @@ describe("Injector", function(){
 			}
 
 			injector.call(function(app){
-				console.log(app === null);
+				//console.log(app === null);
 			},function(err){
-				console.log("to tutaj!",err);
+				//console.log("to tutaj!",err);
 				done();
 			});
 		});
@@ -153,7 +153,7 @@ describe("Injector", function(){
 			});
 
 			injector.call(function(app, test, test2){
-				console.log('function called');
+				//console.log('function called');
 				app.should.equal("OKO");
 				test.should.equal("zxc");
 				test2.should.equal("asd");

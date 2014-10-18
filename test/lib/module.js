@@ -39,7 +39,7 @@ describe("Module", function(){
 			cb(null,ob);
 		});
 		mod.get(function(err,res){
-			console.log(err);
+			//console.log(err);
 			res.should.equal(ob);
 			done();
 		});
@@ -69,7 +69,7 @@ describe("Module", function(){
 		time.should.equal(1);
 		timeout();
 		mod.get(function(err, res){
-			console.log(err.message);
+			//console.log(err.message);
 			err.code.should.equal('TIMEOUT');
 			done();
 		});

@@ -7,11 +7,11 @@ describe('Loader',function(){
 		var loader = new Loader();
 		loader.setPath('default', ['/home']);
 		loader._require = function(path){
-			path.should.equal('/home/test');
+			path.should.equal('/home/test.js');
 			return ob;
 		}
 		loader.load('test', function(err, contents, path){
-			console.log(arguments)
+			//console.log(arguments)
 			contents.should.equal(ob);
 		});
 	});
@@ -19,7 +19,7 @@ describe('Loader',function(){
 		var loader = new Loader();
 		loader.setRoute('config', /^\$/, 
 			function(key){return key.substr(1);});
-		loader.createPath("$dupa",'config',"/asd").should.equal('/asd/dupa');
+		loader.createPath("$dupa",'config',"/asd").should.equal('/asd/dupa.js');
 	});
 	it('should have many paths', function(){
 		var loader = new Loader();
@@ -29,7 +29,7 @@ describe('Loader',function(){
 			function(key){return key.substr(1);});
 
 		loader._require = function(path){
-			path.should.equal('/home/test');
+			path.should.equal('/home/test.js');
 			return ob;
 		}
 		loader.load('test', function(err, contents, path){
@@ -37,7 +37,7 @@ describe('Loader',function(){
 		});
 
 		loader._require = function(path){
-			path.should.equal('/var/test');
+			path.should.equal('/var/test.js');
 			return ob;
 		}
 		loader.load('$test', function(err, contents, path){
@@ -48,7 +48,7 @@ describe('Loader',function(){
 		var loader = new Loader();
 		loader.setPath('default', ['/home','/dupa']);
 		loader._require = function(path){
-			console.log(path);
+			//console.log(path);
 			throw new Error("dupa");
 		}
 		loader.load('test', function(err, contents, path){
