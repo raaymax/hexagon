@@ -1,6 +1,6 @@
 {
   "name": "hexagonjs",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Simplistic high-configurable Node-JS application framework",
   "main": "index.js",
   "directories": {
@@ -12,7 +12,9 @@
     "chai": "*",
     "mocha": "*",
     "debug": "*",
-    "errorhandler": "*"
+    "errorhandler": "*",
+    "commander": "*",
+    "mkdirp": "*"
   },
   "devDependencies": {},
   "scripts": {
