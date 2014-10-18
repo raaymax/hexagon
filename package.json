@@ -1,0 +1,41 @@
+{
+  "name": "hexagon",
+  "version": "0.9.0",
+  "description": "Simplistic high-configurable Node-JS application framework",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "app-root-path": "^0.1.0",
+    "async": "^0.9.0",
+    "chai": "^1.9.1",
+    "debug": "^2.0.0",
+    "errorhandler": "^1.2.0",
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raaymax/hexagon"
+  },
+  "keywords": [
+    "framework",
+    "mvc",
+    "simple",
+    "node",
+    "nodejs",
+    "application",
+    "app",
+    "configurable",
+    "simplistic"
+  ],
+  "author": "Mateusz Russak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raaymax/hexagon/issues"
+  },
+  "homepage": "https://github.com/raaymax/hexagon"
+}
