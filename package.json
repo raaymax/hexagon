@@ -27,6 +27,10 @@
   "bin": {
     "hexagonjs": "./bin/hexagonjs"
   },
+  "files": [
+    "bin/",
+    "templates/"
+  ],
   "keywords": [
     "framework",
     "mvc",
