@@ -1,0 +1,55 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var mkdirp = require('mkdirp');
+var os = require('os');
+var fs = require('fs');
+var path = require('path');
+
+var pkg = require('../package.json');
+
+var version = pkg.version;
+
+// CLI
+
+program
+  .version(version)
+  .usage('[options] [dir]')
+  .option('-e, --express', 'add express engine support')
+  .parse(process.argv);
+
+
+var destination_path = program.args.shift() || '.';
+
+// App name
+
+var app_name = path.basename(path.resolve(destination_path));
+
+createDir('config/');
+createDir('modules/');
+createDir('app/modules/');
+createDir('app/controllers/');
+
+copyTemplate("config/paths.js");
+copyTemplate("config/loader.js");
+copyTemplate("config/controllers.js");
+if(program.express){
+	copyTemplate("modules/http.js");
+	copyTemplate("config/http.js");
+	copyTemplate("config/statics.js");
+
+}
+
+function createDir(rel){
+	mkdirp(path.join(destination_path,rel), 0755, function(err){
+		if(err) throw err;
+	});
+}
+
+function copyTemplate(file) {
+  var from = path.join(__dirname, '..', 'templates', file);
+  var to = path.join(destination_path,file);
+  fs.writeFile(to, fs.readFileSync(from, 'utf-8'), { mode: "utf-8" || 0666 });
+}
+
+
