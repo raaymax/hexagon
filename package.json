@@ -1,5 +1,5 @@
 {
-  "name": "hexagon",
+  "name": "hexagonjs",
   "version": "0.9.0",
   "description": "Simplistic high-configurable Node-JS application framework",
   "main": "index.js",
@@ -21,6 +21,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/raaymax/hexagon"
+  },
+  "main": "bin/hexagonjs",
+  "preferGlobal": true,
+  "bin": {
+    "hexagonjs": "./bin/hexagonjs"
   },
   "keywords": [
     "framework",
