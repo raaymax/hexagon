@@ -12,7 +12,7 @@ var session      = require('express-session');
 
 
 module.exports = function(app, http, loader, $loader, $paths){
-	http.set('port', 8080);
+	http.set('port', 8000);
 	http.set('views', $paths.views());
 	http.set('view engine', 'jade');
 	http.use(favicon($paths.public("favicon.ico")));
