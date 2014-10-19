@@ -29,7 +29,7 @@ $ node app
 
 ## Overview
 
-
+HexagonJS has build-in dependency injection system. All modules from modules/ or app/modules/ directories can be loaded by typing its filename (without extenion) as arguments for function.  
 
 **app/controllers/home.js**
 ```js
@@ -39,6 +39,8 @@ module.exports = function(http){
 	});
 }
 ```
+In this example module from *modules/http.js* is loaded to be used in controller.
+
 
 
 
