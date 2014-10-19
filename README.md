@@ -4,7 +4,7 @@ HexagonJS
 ![Project status](https://travis-ci.org/raaymax/hexagon.svg)
 
 
-Simplistic high-configurable Node-JS application framework
+Simplistic high-configurable Node-JS application framework with dependency injection.
 
 ## Installation &nbsp;  [![NPM version](https://badge.fury.io/js/hexagonjs.svg)](https://badge.fury.io/js/hexagonjs)
 
