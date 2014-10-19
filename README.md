@@ -1,7 +1,7 @@
 HexagonJS
 =======
 
-![Project status](https://travis-ci.org/raaymax/hexagon.svg)
+[![Project status](https://travis-ci.org/raaymax/hexagon.svg)](https://travis-ci.org/raaymax/hexagon)
 
 
 Simplistic high-configurable Node-JS application framework with dependency injection.
