@@ -29,7 +29,9 @@ $ node app
 
 ## Overview
 
-HexagonJS has build-in dependency injection system. All modules from modules/ or app/modules/ directories can be loaded by typing its filename (without extenion) as arguments for function.  
+HexagonJS can be used to build any application, not only web. I used it to build my webpage and non-http AI for some programing contest.
+
+HexagonJS has build-in dependency injection system. All modules from modules directories can be loaded by typing its filename (without extenion) as arguments for function.  
 
 **app/controllers/home.js**
 ```js
@@ -41,6 +43,10 @@ module.exports = function(http){
 ```
 In this example module from *modules/http.js* is loaded to be used in controller.
 
+
+## Generator options
+
+*-e* or *--express* - will add simple express framework support
 
 
 
