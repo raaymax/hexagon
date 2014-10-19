@@ -27,3 +27,22 @@ $ npm install
 $ node app
 ```
 
+## Overview
+
+
+
+**app/controllers/home.js**
+```js
+module.exports = function(http){
+	http.get('/', function(req,res){
+		res.render('index');
+	});
+}
+```
+
+
+
+
+## License
+
+MIT License Copyright © 2014 Mateusz Russak
