@@ -1,6 +1,6 @@
 {
   "name": "hexagonjs",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Simplistic high-configurable Node-JS application framework",
   "main": "index.js",
   "directories": {
@@ -24,13 +24,14 @@
     "type": "git",
     "url": "https://github.com/raaymax/hexagon"
   },
-  "main": "bin/hexagonjs",
-  "preferGlobal": true,
   "bin": {
     "hexagonjs": "./bin/hexagonjs"
   },
   "files": [
     "bin/",
+    "lib/",
+    "LICENSE",
+    "index.js",
     "templates/"
   ],
   "keywords": [

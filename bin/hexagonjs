@@ -34,10 +34,14 @@ copyTemplate("config/paths.js");
 copyTemplate("config/loader.js");
 copyTemplate("config/controllers.js");
 if(program.express){
+	createDir('app/public/');
+	createDir('app/views/');
 	copyTemplate("modules/http.js");
 	copyTemplate("config/http.js");
 	copyTemplate("config/statics.js");
-
+	copyTemplate("app.js", "http.js");
+}else{
+	copyTemplate("app.js");
 }
 
 function createDir(rel){
@@ -46,10 +50,26 @@ function createDir(rel){
 	});
 }
 
-function copyTemplate(file) {
-  var from = path.join(__dirname, '..', 'templates', file);
+function copyTemplate(file, src) {
+  var from = path.join(__dirname, '..', 'templates', src || file);
   var to = path.join(destination_path,file);
-  fs.writeFile(to, fs.readFileSync(from, 'utf-8'), { mode: "utf-8" || 0666 });
+  fs.writeFile(to, fs.readFileSync(from, 'utf-8'), { mode: 0666 });
 }
+
+function write(file, str){
+  var to = path.join(destination_path,file);
+  fs.writeFile(to, str, { mode: 0666 });
+}
+
+
+write('package.json', JSON.stringify({
+	name: app_name,
+	version: "0.0.0",
+	description: "",
+	main: "app.js",
+	dependencies: {
+		hexagonjs: version
+	}
+}));
 
 
