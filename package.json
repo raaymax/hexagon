@@ -1,13 +1,12 @@
 {
   "name": "hexagonjs",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "Simplistic high-configurable Node-JS application framework",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "app-root-path": "*",
     "async": "*",
     "chai": "*",
     "mocha": "*",

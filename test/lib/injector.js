@@ -93,6 +93,46 @@ describe("Injector", function(){
 			app.should.equal(ob);
 		});
 	});
+	it('dependencies from array', function(){
+		var injector = new Injector();
+		var ob = {asd:123};
+		injector.setf("app",function(cb){
+			cb(null,ob);
+		});
+		injector.call(['app'],function(oko){
+			oko.should.equal(ob);
+		});
+	});
+	it('params from object', function(){
+		var injector = new Injector();
+		var ob = {asd:123};
+		injector.setf("app",function(cb){
+			cb(null,ob);
+		});
+		var params = {
+			dependencies: ['app'],
+			controller: function(oko){
+				oko.should.equal(ob);
+			}
+		}
+		
+		injector.call(params);
+	});
+	it('args in function scope', function(){
+		var injector = new Injector();
+		var ob = {asd:123};
+		injector.setf("app",function(cb){
+			cb(null,ob);
+		});
+		var params = {
+			dependencies: ['app'],
+			controller: function(){
+				this.argv.app.should.equal(ob);
+			}
+		}
+		
+		injector.call(params);
+	});
 	it('module set by function error should be propagated', function(){
 		var injector = new Injector();
 		var ob = {asd:123};
@@ -119,6 +159,28 @@ describe("Injector", function(){
 			injector.call(function(app){
 				//console.log(app);
 				app.should.equal("OKO");
+				done();
+			},function(err){
+			});
+		});
+		it('all together - object in file', function(done){
+			var injector = new Injector();
+			var ob = {asd:123};
+			injector.loader.setPath('default',['/home']);
+			injector.set("app",ob);
+
+			injector.loader._require = function(path){
+				return {
+					dependencies: ['app'],
+					controller: function(){
+						this.argv.app.should.equal(ob);
+						return "OKO";
+					}
+				};
+			}
+			injector.call(function(home){
+				//console.log(app);
+				home.should.equal("OKO");
 				done();
 			},function(err){
 			});
