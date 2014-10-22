@@ -43,6 +43,45 @@ module.exports = function(http){
 ```
 In this example module from *modules/http.js* is loaded to be used in controller.
 
+## Modules
+
+Whole framework bases on modules. Each module have its dependencies. Modules will be loaded in order - dependencies first. All dependencies will be accessible from the controller function. Controller function is something like constructor of the module - what it will return it will be accesible as the module.
+
+Currently there are 2 ways to create modules. First is the shorter one:
+**app/modules/randomUser.js**
+```js
+module.exports = function(users){
+	return function(){
+		return users.get(Math.round(Math.random()*users.count()));
+	}
+}
+```
+This is very simple example but should be enouch to present basics. module.exports is a function which will have injected parameters by its names. In this case there will be loaded *app/modules/users.js* and injected as the *users* argument to the function. Function returns in this case a function to randomly pick user from *users* module, that means when other module will use *randomUser* as a dependencie - it will be a function that returns a random user.
+
+Second way to define module is by object way, i will use the same example:
+
+**app/modules/randomUser.js**
+```js
+module.exports = {
+	dependencies: ['users'],
+	controller: function(anyname){
+		var users = this.argv.users;
+
+		return function(){
+			return anyname.get(Math.round(Math.random()*anyname.count()));
+		}
+	}
+}
+```
+
+In this case all dependencies are listed in *dependencies* property and they will be injected in order to the *controller* function - this gives us an ability to give any names to the arguments - its handy when names are very long. 
+If there are too many dependencies to list them as function arguments you can access to them by *this.argv* object which contains all arguments.
+
+## Configuration
+
+### The *loader* module
+
+TODO...
 
 ## Generator options
 
