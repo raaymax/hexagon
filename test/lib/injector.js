@@ -163,6 +163,18 @@ describe("Injector", function(){
 			},function(err){
 			});
 		});
+		it('all togethear - load by filename', function(done){
+			var injector = new Injector();
+			injector.loader._require = function(path){
+				path.should.equal("/asd.js");
+				return function(){
+					done();
+					return "OKO";
+				}
+			}
+			injector.loader.setPath('default',['/home']);
+			injector.call("/asd.js",function(err){});
+		});
 		it('all together - object in file', function(done){
 			var injector = new Injector();
 			var ob = {asd:123};
