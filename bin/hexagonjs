@@ -40,6 +40,7 @@ if(program.express){
 	copyTemplate("app/controllers/home.js");
 	copyTemplate("app/views/index.jade");
 	copyTemplate("app/public/favicon.ico");
+	copyTemplate("app/public/style.styl");
 	copyTemplate("config/http.js");
 	copyTemplate("config/statics.js");
 	copyTemplate("app.js", "http.js");
@@ -48,9 +49,7 @@ if(program.express){
 }
 
 function createDir(rel){
-	mkdirp(path.join(destination_path,rel), 0755, function(err){
-		if(err) throw err;
-	});
+	mkdirp.sync(path.join(destination_path,rel), 0755);
 }
 
 function copyTemplate(file, src) {

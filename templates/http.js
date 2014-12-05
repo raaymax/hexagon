@@ -7,5 +7,5 @@ app.configure(function(loader){
 	loader.config('loader');
 	loader.config('controllers');
 	loader.config('http');
-	loader.config('static');
+	loader.config('statics');
 });
