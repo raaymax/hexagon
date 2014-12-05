@@ -1,6 +1,6 @@
 {
   "name": "hexagonjs",
-  "version": "0.9.9",
+  "version": "0.9.11",
   "description": "Simplistic high-configurable Node-JS application framework",
   "main": "index.js",
   "directories": {
