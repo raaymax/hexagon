@@ -163,6 +163,24 @@ describe("Injector", function(){
 			},function(err){
 			});
 		});
+		it('all together - callback', function(done){
+			var injector = new Injector();
+			injector.loader._require = function(path){
+				//console.log("require done");
+				return function(callback){
+					//console.log("func called");
+					callback(null, "OKO");
+					return false;
+				}
+			}
+			injector.loader.setPath('default',['/home']);
+			injector.call(function(app){
+				//console.log(app);
+				app.should.equal("OKO");
+				done();
+			},function(err){
+			});
+		});
 		it('all togethear - load by filename', function(done){
 			var injector = new Injector();
 			injector.loader._require = function(path){
